@@ -36,7 +36,7 @@ The difference actually makes sense, because the efficiency in networks stream a
  LOWER ADDRESS
 ```
 
-# Bit Fields
+## Bit Fields
 To implement diagram structures in a convenient way, bit fields are available and easy to use in C/C++ like the following.
 
 ```c++
@@ -51,7 +51,7 @@ It sets the member with certain width of bits. Anyhow, things become complicated
 In little endian, bit fields are stored in the reversed way that is the lower bits are stored in lower address, vice versa.
 
 In big endian, it's the opposite situation.
-## Bits in Little Endian
+### Bits in Little Endian
 ```
  HIGHER ADDRESS
 +-+
@@ -74,7 +74,7 @@ In big endian, it's the opposite situation.
  LOWER ADDRESS
 ```
 
-## Bits in Big Endian
+### Bits in Big Endian
 ```
  HIGHER ADDRESS
 +-+
