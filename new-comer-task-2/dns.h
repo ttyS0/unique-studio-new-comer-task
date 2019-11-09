@@ -41,7 +41,6 @@ struct dns_record_inner
     uint32_t rttl;
     uint16_t rdlength;
 };
-#pragma pack(pop)
 
 struct dns_record
 {
@@ -58,6 +57,7 @@ struct dns_question_inner
     uint16_t qtype;
     uint16_t qclass;
 };
+#pragma pack(pop)
 
 struct dns_question
 {
