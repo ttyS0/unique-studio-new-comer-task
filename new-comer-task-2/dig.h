@@ -129,25 +129,29 @@ public:
     }
     dig(const char* dns_str)
     {
-        in_addr_t dns = inet_addr(dns_str);
-        if(dns == INADDR_NONE)
+        in_addr_t dns;
+        if((dns = inet_addr(dns_str)) != INADDR_NONE)
         {
-            dns_server = resolv_dns_server();
+            dns_server = dns;
+        }
+        else if((dns_server = resolv_dns_server()) && ((dns = get_a_record(dns_str)) != INADDR_NONE))
+        {
+            dns_server = dns;
         }
         else
         {
-            dns_server = dns;
+            dns_server = resolv_dns_server();
         }       
     }
     dig(in_addr_t dns)
     {
-        if(dns == INADDR_NONE)
+        if(dns != INADDR_NONE)
         {
-            dns_server = resolv_dns_server();
+            dns_server = dns;
         }
         else
         {
-            dns_server = dns;
+            dns_server = resolv_dns_server();
         }
         
     }
@@ -194,7 +198,7 @@ public:
 
         int s = socket(AF_INET , SOCK_DGRAM , IPPROTO_UDP);
         timeval tv_out;
-        tv_out.tv_sec = 8;
+        tv_out.tv_sec = MAX_QUERY_TIME;
         tv_out.tv_usec = 0;
         setsockopt(s, SOL_SOCKET, SO_RCVTIMEO, &tv_out, sizeof(tv_out));
 
