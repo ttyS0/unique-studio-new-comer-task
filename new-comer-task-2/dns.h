@@ -4,6 +4,7 @@
 #include <arpa/inet.h>
 #include <netinet/in.h>
 
+const int MAX_QUERY_TIME = 5;
 const int MAX_QUERIES = 20;
 
 const size_t LABEL_MAX_LENGTH = 63;
