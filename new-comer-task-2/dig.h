@@ -41,6 +41,7 @@ private:
                 } while (*p != '\0' && *p != ' ');
                 server[t] = '\0';
                 dns = inet_addr(server);
+                break;
             }
         }
         fin.close();
