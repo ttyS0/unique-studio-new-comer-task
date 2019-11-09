@@ -218,7 +218,7 @@ public:
         dns_question_inner* send_dqi = (dns_question_inner*) (send_p);
         send_dqi->qclass = htons(query_class);
         send_dqi->qtype = htons(query_type);
-        printf("Query type: %d\n", query_type);
+        // printf("Query type: %d\n", query_type);
         send_p += sizeof(dns_question_inner);
 
         ssize_t send_len;
