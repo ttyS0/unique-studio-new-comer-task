@@ -10,7 +10,7 @@
 class dig
 {
 private:
-    const char* root = "root";
+    const char* root = "(root)";
     in_addr_t dns_server = INADDR_NONE;
     in_addr_t resolv_dns_server()
     {
